@@ -105,13 +105,15 @@ if (empty($db_port)) {
   $db_port = $default_db_port;
 }
 
-$databases['default']['default'] = array(
-  'database' => $db_name,
-  'username' => $db_user,
-  'password' => $db_password,
-  'prefix' => '',
-  'host' => $db_host,
-  'port' => $db_port,
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
+if (!getenv('CI')) {
+  $databases['default']['default'] = array(
+    'database' => $db_name,
+    'username' => $db_user,
+    'password' => $db_password,
+    'prefix' => '',
+    'host' => $db_host,
+    'port' => $db_port,
+    'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+    'driver' => 'mysql',
+  );
+}
