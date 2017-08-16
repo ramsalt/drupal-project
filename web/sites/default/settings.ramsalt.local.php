@@ -26,8 +26,6 @@ $db_password  = 'drupal';
 /**                                                             **/
 /*****************************************************************/
 
-$conf['site_mail'] = $your_email;
-
 if ($real_host ) {
   $real_host_directory = isset($real_host_directory) ? $real_host_directory : $real_host;
   if (isset($real_host_access) )
