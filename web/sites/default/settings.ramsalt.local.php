@@ -7,7 +7,7 @@ $your_email = 'your_username@ramsalt.com';
 // Set the real hostname of the site, it will be used for `stage_file_proxy` set it to any "FALSE" value to disable it.
 $real_host = 'example.com';
 // This is used if the files are not in the typical  structure: sites/{$real_host}/files but in a sites/{$real_host_directory}/files
-$real_host_directory = 'default'
+$real_host_directory = 'default';
 // if your online host (in this config: $real_host) has an authentication you sould set here the info using the format: username:password
 // $real_host_access = 'username:password';
 
