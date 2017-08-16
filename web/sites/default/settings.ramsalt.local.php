@@ -105,6 +105,8 @@ if (empty($db_port)) {
   $db_port = $default_db_port;
 }
 
+// Don't use default database settings for CI tools, as they will install the
+// site on their own.
 if (!getenv('CI')) {
   $databases['default']['default'] = array(
     'database' => $db_name,
