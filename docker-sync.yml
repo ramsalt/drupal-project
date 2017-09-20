@@ -7,6 +7,7 @@ syncs:
   #IMPORTANT: ensure this name is unique and does not match your other application container name
   CHANGEME-htdocs-sync:
     src: './'
+    dest: '/var/www/html'
     notify_terminal: false
     sync_args: '-prefer newer'
     sync_userid: '82'
