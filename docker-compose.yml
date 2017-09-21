@@ -63,8 +63,8 @@ services:
 #      - 'traefik.port=6081'
 #      - 'traefik.frontend.rule=Host:varnish.drupal.docker.localhost'
 
-#  redis:
-#    image: wodby/redis:3.2-2.1.2
+  redis:
+    image: wodby/redis:3.2-2.1.2
 
 #  solr:
 ## wodby/drupal-solr:[DRUPAL_VERSION]-[SOLR_VERSION]-[STABILITY_TAG].
