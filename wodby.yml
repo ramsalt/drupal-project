@@ -1,7 +1,12 @@
 # For more info about Post deployment scripts in Wodby see:
 # https://docs.wodby.com/deployment/post-deployment-scripts.html
 pipeline:
-  # To avoid any issues this needs to be the first command that we run
+  - name: Ignore ssh host key check for git
+    type: command
+    command: 'printf "Host bitbucket.org github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config'
+    # TODO: Improve check if we need to use this as permanent solution.
+    only_if: '[ $(grep -c "Host bitbucket.org" ~/.ssh/config) -eq 0 ]'
+
   - name: Git sub-modules setup
     type: command
     command: git submodule update --init --checkout
