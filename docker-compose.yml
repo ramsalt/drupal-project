@@ -50,18 +50,18 @@ services:
       - 'traefik.port=80'
       - 'traefik.frontend.rule=Host:drupal.docker.localhost'
 
-#  varnish:
-#    image: wodby/drupal-varnish:4.1-2.1.2
-#    depends_on:
-#      - nginx
-#    environment:
-#      VARNISH_SECRET: secret
-#      VARNISH_BACKEND_HOST: nginx
-#      VARNISH_BACKEND_PORT: 80
-#    labels:
-#      - 'traefik.backend=varnish'
-#      - 'traefik.port=6081'
-#      - 'traefik.frontend.rule=Host:varnish.drupal.docker.localhost'
+  varnish:
+    image: wodby/drupal-varnish:4.1-2.1.2
+    depends_on:
+      - nginx
+    environment:
+      VARNISH_SECRET: secret
+      VARNISH_BACKEND_HOST: nginx
+      VARNISH_BACKEND_PORT: 80
+    labels:
+      - 'traefik.backend=varnish'
+      - 'traefik.port=6081'
+      - 'traefik.frontend.rule=Host:varnish.drupal.docker.localhost'
 
   redis:
     image: wodby/redis:3.2-2.1.2
