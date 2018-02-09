@@ -11,11 +11,6 @@ pipeline:
     type: command
     command: git submodule update --init --checkout
     directory: $WODBY_APP_ROOT
-  
-  - name: Download composer dependencies in parallel
-    type: command
-    command: composer global require hirak/prestissimo:^0.3 --optimize-autoloader > /dev/null 2>&1
-    directory: $WODBY_APP_ROOT
 
   - name: Composer install (Live)
     type: command
