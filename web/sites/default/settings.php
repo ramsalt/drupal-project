@@ -3,7 +3,7 @@
 /*
  * Include Wodby settings if required.
  */
-isset($_SERVER['WODBY_ENVIRONMENT_TYPE']) && include_once $_SERVER['WODBY_DIR_CONF'] . '/wodby.settings.php';
+isset($_SERVER['WODBY_ENVIRONMENT_TYPE'], $_SERVER['CONF_DIR']) && include_once $_SERVER['CONF_DIR'] . '/wodby.settings.php';
 
 // Set the Config Sync directory to be outside the drupal root
 $config_directories[CONFIG_SYNC_DIRECTORY] = DRUPAL_ROOT . '/../config/sync/';
