@@ -7,7 +7,6 @@
 /web/profiles/contrib/
 /web/libraries/
 
-
 # Ingore files that are only for the current local environment
 /web/sites/*/settings.ramsalt.local.php
 /web/sites/*/services.local.yml
