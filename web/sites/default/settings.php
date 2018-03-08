@@ -13,4 +13,4 @@ $config_directories[CONFIG_SYNC_DIRECTORY] = DRUPAL_ROOT . '/../config/sync/';
  */
 $ENV_TYPE = isset($_SERVER['WODBY_ENVIRONMENT_TYPE']) ? $_SERVER['WODBY_ENVIRONMENT_TYPE'] : 'local';
 $filename = __DIR__ . "/settings.ramsalt.{$ENV_TYPE}.php";
-file_exists($filename) && include_once $filename;
+file_exists($filename) && include $filename;
