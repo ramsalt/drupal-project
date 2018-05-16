@@ -35,7 +35,7 @@
         "oomphinc/composer-installers-extender": "^1.1"
     },
     "require-dev": {
-        "webflo/drupal-core-require-dev": "~8.6"
+        "webflo/drupal-core-require-dev": "~8.5"
     },
     "conflict": {
         "drupal/drupal": "*"
