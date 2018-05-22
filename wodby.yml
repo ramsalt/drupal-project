@@ -31,17 +31,3 @@ pipeline:
     directory: $WODBY_APP_DOCROOT
     # Only run in Production
     only_if: '[ ! -z "$(drush st --fields=bootstrap)" ] && [ "$WODBY_ENVIRONMENT_TYPE" = "prod" ]'
-
-  - name: Run DB Updates
-    type: command
-    command: drush -q -y updb --entity-updates
-    directory: $WODBY_APP_DOCROOT
-    # Do *not* run in Production and if Drupal can't bootstrap
-    only_if: '[ ! -z "$(drush st --fields=bootstrap)" ] && [ "$WODBY_ENVIRONMENT_TYPE" != "prod" ]'
-
-  - name: Rebuild Caches
-    type: command
-    command: drush -q -y cache-rebuild
-    directory: $WODBY_APP_DOCROOT
-    # Do *not* run in Production and if Drupal can't bootstrap
-    only_if: '[ ! -z "$(drush st --fields=bootstrap)" ] && [ "$WODBY_ENVIRONMENT_TYPE" != "prod" ]'
