@@ -23,6 +23,11 @@ $db_user      = 'drupal';
 $db_password  = 'drupal';
 */
 
+// A default value for non-docker users' private files path.
+if (!$is_docker) {
+  $settings['file_private_path'] = 'sites/default/files/private';
+}
+
 /*****************************************************************/
 /**                                                             **/
 /**     You should not need change anything below this line     **/
