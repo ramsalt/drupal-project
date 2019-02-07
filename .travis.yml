@@ -3,9 +3,9 @@ dist: trusty
 sudo: false
 
 php:
-  - 7.0
   - 7.1
   - 7.2
+  # - 7.3
 
 env:
   global:
@@ -18,10 +18,10 @@ env:
 
 matrix:
   exclude:
-    - php: 7.2
-      env: RELEASE=stable COMPOSER_CHANNEL=stable
-    - php: 7.2
-      env: RELEASE=stable COMPOSER_CHANNEL=snapshot
+    # - php: 7.3
+    #   env: RELEASE=stable COMPOSER_CHANNEL=stable
+    # - php: 7.3
+    #   env: RELEASE=stable COMPOSER_CHANNEL=snapshot
 
 before_install:
   - echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
