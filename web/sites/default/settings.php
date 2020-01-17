@@ -6,7 +6,7 @@
 isset($_SERVER['WODBY_ENVIRONMENT_TYPE'], $_SERVER['CONF_DIR']) && include_once $_SERVER['CONF_DIR'] . '/wodby.settings.php';
 
 // Set the Config Sync directory to be outside the drupal root
-$config_directories[CONFIG_SYNC_DIRECTORY] = realpath(DRUPAL_ROOT . '/../config/sync/');
+$settings['config_sync_directory'] = realpath(DRUPAL_ROOT . '/../config/sync/');
 
 /*
  * Include settings based in the environment.
