@@ -14,7 +14,7 @@ pipeline:
 
   - name: Composer install
     type: command
-    command: composer install --no-dev --optimize-autoloader --no-progress
+    command: composer install --no-interaction --no-progress --no-dev --optimize-autoloader
     directory: $WODBY_APP_ROOT
 
   - name: Set Admin mail to webmaster, for consistent pass reset.
