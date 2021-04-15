@@ -6,6 +6,7 @@ env:
   COMPOSER_MEMORY_LIMIT: -1
   SIMPLETEST_DB: sqlite://tmp/site.sqlite
   SIMPLETEST_BASE_URL: "http://127.0.0.1:8080"
+  COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
 
 jobs:
   build:
