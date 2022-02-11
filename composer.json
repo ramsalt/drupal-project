@@ -21,7 +21,7 @@
         "packagist.org": false
     },
     "require": {
-        "php": ">=7.3",
+        "php": ">=7.4",
         "composer/installers": "^1.9",
         "oomphinc/composer-installers-extender": "^2.0",
         "cweagans/composer-patches": "^1.7",
