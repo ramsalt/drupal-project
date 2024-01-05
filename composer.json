@@ -27,7 +27,7 @@
         "drupal/core-composer-scaffold": "^10.0.0",
         "drupal/core-recommended": "^10.0.0",
         "drupal/monolog": "^3.0",
-        "drush/drush": "^12.0",
+        "drush/drush": "^12.4.3",
         "oomphinc/composer-installers-extender": "^2.0",
         "ramsalt/drupal-scaffold": "*",
         "vlucas/phpdotenv": "^5.1",
