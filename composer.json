@@ -21,7 +21,7 @@
         "packagist.org": false
     },
     "require": {
-        "php": ">=8.1",
+        "php": ">=8.2",
         "composer/installers": "^2.1",
         "cweagans/composer-patches": "^1.7",
         "drupal/core-composer-scaffold": "^10.2.0",
