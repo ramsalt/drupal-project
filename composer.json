@@ -21,7 +21,7 @@
         "packagist.org": false
     },
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.3",
         "composer/installers": "^2.1",
         "cweagans/composer-patches": "^1.7",
         "drupal/core-composer-scaffold": "^10.2.0",
@@ -42,6 +42,9 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
+        "platform":{
+            "php": "8.3"
+        },
         "discard-changes": true,
         "sort-packages": true,
         "allow-plugins": {
