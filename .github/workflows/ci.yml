@@ -10,6 +10,8 @@ on:
 
 env:
   COMPOSER_MEMORY_LIMIT: -1
+  COMPOSER_AUTH: ${{secrets.COMPOSER_AUTH}}
+  SYMFONY_DEPRECATIONS_HELPER: 'disabled=1'
   SIMPLETEST_DB: sqlite://tmp/site.sqlite
   SIMPLETEST_BASE_URL: "http://127.0.0.1:8080"
 
@@ -21,9 +23,15 @@ jobs:
 
       matrix:
         php-versions: ['8.3']
-        drupal-release: ['alpha', 'beta', 'dev']
-        composer-channel: ['stable', 'snapshot']
-
+        drupal-release: ['stable']
+        composer-channel: ['stable']
+        include:
+          - php-versions: '8.3'
+            drupal-release: dev
+            composer-channel: stable
+          - php-versions: '8.3'
+            drupal-release: stable
+            composer-channel: snapshot
     steps:
       - name: Dump matrix context
         env:
@@ -77,8 +85,8 @@ jobs:
           composer --verbose require --no-update drupal/core-composer-scaffold:^11@${{ matrix.drupal-release }}
           composer --verbose require --no-update drupal/core-recommended:^11@${{ matrix.drupal-release }}
           composer --verbose require --no-update --dev drupal/core-dev:^11@${{ matrix.drupal-release }}
-          # Remove the line below once the package is out of `alpha`. 
-          [[ ${{ matrix.drupal-release }} == 'beta' ]] && composer require chi-teck/drupal-code-generator:^4@alpha          
+          # Remove the line below once the package is out of `alpha`.
+          [[ ${{ matrix.drupal-release }} == 'beta' ]] && composer require chi-teck/drupal-code-generator:^4@alpha
           composer --verbose update
 
       - name: Install site

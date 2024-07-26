@@ -1,7 +1,6 @@
 # Composer template for Drupal projects
 
-[![CI](https://github.com/drupal-composer/drupal-project/actions/workflows/ci.yml/badge.svg?branch=11.x)](https://github.com/drupal-composer/drupal-project/actions/workflows/ci.yml)
-![LICENSE](https://img.shields.io/github/license/drupal-composer/drupal-project)
+[![CI](https://github.com/ramsalt/drupal-project/actions/workflows/ci.yml/badge.svg?branch=10.x)](https://github.com/ramsalt/drupal-project/actions/workflows/ci.yml)
 
 This project template provides a starter kit for managing your site
 dependencies with [Composer](https://getcomposer.org/).
@@ -29,7 +28,7 @@ for your setup.
 Create your project:
 
 ```bash
-composer create-project drupal-composer/drupal-project:11.x-dev some-dir --no-interaction
+composer create-project ramsalt/drupal-project:11.x-dev some-dir --no-interaction
 ```
 
 The `composer create-project` command passes ownership of all files to the
@@ -48,16 +47,16 @@ composer require drupal/devel
 ```
 
 By default, this project is set to install only stable releases of dependencies,
-as specified by `"minimum-stability": "stable"` in `composer.json`. If you need 
-to use non-stable releases (e.g., `alpha`, `beta`, `RC`), you can modify the 
-version constraint to allow for such versions. For instance, to require a beta 
+as specified by `"minimum-stability": "stable"` in `composer.json`. If you need
+to use non-stable releases (e.g., `alpha`, `beta`, `RC`), you can modify the
+version constraint to allow for such versions. For instance, to require a beta
 version of a module:
 
 ```bash
 composer require drupal/devel:1.0.0-beta1
 ```
 
-Alternatively, you can globally adjust the stability settings by modifying 
+Alternatively, you can globally adjust the stability settings by modifying
 `composer.json` to include the desired stability level and explicitly allow it:
 
 ```json
@@ -67,7 +66,7 @@ Alternatively, you can globally adjust the stability settings by modifying
 }
 ```
 
-This configuration ensures that stable releases are preferred, but allows the 
+This configuration ensures that stable releases are preferred, but allows the
 installation of non-stable packages when necessary.
 
 ### Adding libraries
