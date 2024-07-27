@@ -1,7 +1,6 @@
 {
     "name": "ramsalt/drupal-project",
-    "description": "Project template for Drupal 10 projects with Composer",
-    "type": "project",
+    "description": "Project template for Drupal 11 projects with Composer",
     "license": "GPL-2.0-or-later",
     "type": "project",
     "authors": [
@@ -71,8 +70,16 @@
     "extra": {
         "composer-exit-on-patch-failure": true,
         "drupal-scaffold": {
+            "allowed-packages": [
+                "ramsalt/drupal-scaffold"
+            ],
             "file-mapping": {
                 "[project-root]/.gitignore": false,
+                "[web-root]/sites/development.services.yml": {
+                    "mode": "replace",
+                    "path": "web/core/assets/scaffold/files/development.services.yml",
+                    "overwrite": false
+                },
                 "[web-root]/INSTALL.txt": false,
                 "[web-root]/README.txt": false
             },
@@ -122,26 +129,12 @@
             "ramsaltmedia-module",
             "ramsaltmedia-theme"
         ],
-        "drupal-scaffold": {
-            "allowed-packages": [
-                "ramsalt/drupal-scaffold"
-            ],
-            "locations": {
-                "web-root": "web/"
-            },
-            "file-mapping": {
-                "[web-root]/sites/development.services.yml": {
-                    "mode": "replace",
-                    "path": "web/core/assets/scaffold/files/development.services.yml",
-                    "overwrite": false
-                }
-            }
-        },
         "patchLevel": {
             "drupal/core": "-p2"
         },
         "enable-patching": true,
         "patches-file": "composer.patches.json"
+        }
     },
     "scripts": {
         "pre-install-cmd": [
