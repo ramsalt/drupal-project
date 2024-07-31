@@ -122,7 +122,8 @@
             ],
             "web/themes/ramsaltmedia/{$name}": [
                 "type:ramsaltmedia-theme"
-            ],
+            ]
+        },
         "installer-types": [
             "bower-asset",
             "npm-asset",
@@ -134,7 +135,6 @@
         },
         "enable-patching": true,
         "patches-file": "composer.patches.json"
-        }
     },
     "scripts": {
         "pre-install-cmd": [
