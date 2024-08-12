@@ -13,13 +13,6 @@
             "role": ""
         }
     ],
-    "repositories": {
-        "private-packagist": {
-            "type": "composer",
-            "url": "https://repo.packagist.com/ramsalt/"
-        },
-        "packagist.org": false
-    },
     "require": {
         "php": ">=8.3",
         "composer/installers": "^2.1",
@@ -40,6 +33,13 @@
     "conflict": {
         "drupal/drupal": "*"
     },
+    "repositories": {
+        "private-packagist": {
+            "type": "composer",
+            "url": "https://repo.packagist.com/ramsalt/"
+        },
+        "packagist.org": false
+    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "autoload": {
@@ -51,9 +51,6 @@
         ]
     },
     "config": {
-        "platform":{
-            "php": "8.3"
-        },
         "allow-plugins": {
             "composer/installers": true,
             "cweagans/composer-patches": true,
@@ -65,6 +62,9 @@
             "phpstan/extension-installer": true
         },
         "discard-changes": true,
+        "platform": {
+            "php": "8.3"
+        },
         "sort-packages": true
     },
     "extra": {
@@ -75,18 +75,19 @@
             ],
             "file-mapping": {
                 "[project-root]/.gitignore": false,
+                "[web-root]/INSTALL.txt": false,
+                "[web-root]/README.txt": false,
                 "[web-root]/sites/development.services.yml": {
                     "mode": "replace",
-                    "path": "web/core/assets/scaffold/files/development.services.yml",
-                    "overwrite": false
-                },
-                "[web-root]/INSTALL.txt": false,
-                "[web-root]/README.txt": false
+                    "overwrite": false,
+                    "path": "web/core/assets/scaffold/files/development.services.yml"
+                }
             },
             "locations": {
                 "web-root": "web/"
             }
         },
+        "enable-patching": true,
         "installer-paths": {
             "web/core": [
                 "type:drupal-core"
@@ -133,7 +134,6 @@
         "patchLevel": {
             "drupal/core": "-p2"
         },
-        "enable-patching": true,
         "patches-file": "composer.patches.json"
     },
     "scripts": {
