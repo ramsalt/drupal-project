@@ -29,8 +29,8 @@
     "require-dev": {
         "drupal/core-dev": "^11@alpha",
         "ergebnis/composer-normalize": "^2.42",
-        "ramsalt/common-behat-tests": "",
-        "ramsalt/phpcompatibility-meta": ""
+        "ramsalt/common-behat-tests": "^1.0",
+        "ramsalt/phpcompatibility-meta": "^1.0"
     },
     "conflict": {
         "drupal/drupal": "*"
