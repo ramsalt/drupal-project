@@ -18,7 +18,15 @@ use Symfony\Component\Filesystem\Filesystem;
 class ScriptHandler {
 
   /**
+   * Creates required Drupal directories and files to ensure proper installation.
+   *
+   * This method sets up necessary directories (`modules`, `profiles`, `themes`)
+   * and prepares essential configuration files like `settings.php`. It ensures
+   * these components are in place for successful Drupal setup and permissions
+   * are properly set for installation.
+   *
    * @param \Composer\Script\Event $event
+   *   The event object for handling script events.
    *
    * @return void
    */
