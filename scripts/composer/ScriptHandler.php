@@ -10,7 +10,10 @@ use DrupalFinder\DrupalFinderComposerRuntime;
 use Symfony\Component\Filesystem\Filesystem;
 
 /**
+ * Handles various script events during the Composer lifecycle for Drupal projects.
  *
+ * This class provides static methods to create necessary files and directories
+ * for Drupal installations and checks for Composer version compatibility.
  */
 class ScriptHandler {
 
