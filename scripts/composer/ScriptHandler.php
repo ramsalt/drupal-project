@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \DrupalProject\composer\ScriptHandler.
- */
-
 namespace DrupalProject\composer;
 
 use Composer\Script\Event;
@@ -14,8 +9,27 @@ use Drupal\Core\Site\SettingsEditor;
 use DrupalFinder\DrupalFinderComposerRuntime;
 use Symfony\Component\Filesystem\Filesystem;
 
+/**
+ * Handles various script events during the Composer lifecycle for Drupal projects.
+ *
+ * This class provides static methods to create necessary files and directories
+ * for Drupal installations and checks for Composer version compatibility.
+ */
 class ScriptHandler {
 
+  /**
+   * Creates required Drupal directories and files to ensure proper installation.
+   *
+   * This method sets up necessary directories (`modules`, `profiles`, `themes`)
+   * and prepares essential configuration files like `settings.php`. It ensures
+   * these components are in place for successful Drupal setup and permissions
+   * are properly set for installation.
+   *
+   * @param \Composer\Script\Event $event
+   *   The event object for handling script events.
+   *
+   * @return void
+   */
   public static function createRequiredFiles(Event $event) {
     $fs = new Filesystem();
     $drupalFinder = new DrupalFinderComposerRuntime();
@@ -32,15 +46,15 @@ class ScriptHandler {
       'themes',
     ];
 
-    // Required for unit testing
+    // Required for unit testing.
     foreach ($dirs as $dir) {
-      if (!$fs->exists($drupalRoot . '/'. $dir)) {
-        $fs->mkdir($drupalRoot . '/'. $dir);
-        $fs->touch($drupalRoot . '/'. $dir . '/.gitkeep');
+      if (!$fs->exists($drupalRoot . '/' . $dir)) {
+        $fs->mkdir($drupalRoot . '/' . $dir);
+        $fs->touch($drupalRoot . '/' . $dir . '/.gitkeep');
       }
     }
 
-    // Prepare the settings file for installation
+    // Prepare the settings file for installation.
     if (!$fs->exists($drupalRoot . '/sites/default/settings.php') && $fs->exists($drupalRoot . '/sites/default/default.settings.php')) {
       $fs->copy($drupalRoot . '/sites/default/default.settings.php', $drupalRoot . '/sites/default/settings.php');
       require_once $drupalRoot . '/core/includes/bootstrap.inc';
@@ -55,7 +69,7 @@ class ScriptHandler {
       $event->getIO()->write("Created a sites/default/settings.php file with chmod 0666");
     }
 
-    // Create the files directory with chmod 0777
+    // Create the files directory with chmod 0777.
     if (!$fs->exists($drupalRoot . '/sites/default/files') && !is_link($drupalRoot . '/sites/default/files')) {
       $oldmask = umask(0);
       $fs->mkdir($drupalRoot . '/sites/default/files', 0777);
