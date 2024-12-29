@@ -22,7 +22,7 @@
         "drupal/monolog": "^3.0",
         "drush/drush": "^13.0",
         "oomphinc/composer-installers-extender": "^2.0",
-        "ramsalt/drupal-scaffold": "*",
+        "ramsalt/drupal-scaffold": "^1.0",
         "vlucas/phpdotenv": "^5.1",
         "webflo/drupal-finder": "^1.3"
     },
