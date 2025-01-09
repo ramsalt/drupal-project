@@ -71,6 +71,10 @@
     },
     "extra": {
         "composer-exit-on-patch-failure": true,
+        "drupal-recipe": {
+            "unpack-remove-recipe": true,
+            "auto-unpack": true
+        },
         "drupal-scaffold": {
             "allowed-packages": [
                 "ramsalt/drupal-scaffold",
@@ -138,11 +142,7 @@
         "patchLevel": {
             "drupal/core": "-p2"
         },
-        "patches-file": "composer.patches.json",
-        "drupal-recipe": {
-            "unpack-remove-recipe": true,
-            "auto-unpack": true
-        }
+        "patches-file": "composer.patches.json"
     },
     "scripts": {
         "pre-install-cmd": [
