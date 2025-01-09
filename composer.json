@@ -72,8 +72,8 @@
     "extra": {
         "composer-exit-on-patch-failure": true,
         "drupal-recipe": {
-            "unpack-remove-recipe": true,
-            "auto-unpack": true
+            "auto-unpack": true,
+            "unpack-remove-recipe": true
         },
         "drupal-scaffold": {
             "allowed-packages": [
