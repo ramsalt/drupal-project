@@ -138,7 +138,11 @@
         "patchLevel": {
             "drupal/core": "-p2"
         },
-        "patches-file": "composer.patches.json"
+        "patches-file": "composer.patches.json",
+        "drupal-recipe": {
+            "unpack-remove-recipe": true,
+            "auto-unpack": true
+        }
     },
     "scripts": {
         "pre-install-cmd": [
