@@ -116,6 +116,9 @@
             "web/modules/custom/{$name}": [
                 "type:drupal-custom-module"
             ],
+            "web/modules/ramsalt/{$name}": [
+                "type:ramsalt-module"
+            ],
             "web/modules/ramsaltmedia/{$name}": [
                 "type:ramsaltmedia-module"
             ],
@@ -132,6 +135,7 @@
         "installer-types": [
             "bower-asset",
             "npm-asset",
+            "ramsalt-module",
             "ramsaltmedia-module",
             "ramsaltmedia-theme"
         ],
