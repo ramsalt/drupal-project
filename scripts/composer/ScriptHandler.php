@@ -18,6 +18,16 @@ use Symfony\Component\Filesystem\Filesystem;
 class ScriptHandler {
 
   /**
+   * Default permission for settings.php.
+   */
+  private const SETTINGS_FILE_MODE = 0644;
+
+  /**
+   * Default permission for public files directory.
+   */
+  private const PUBLIC_FILES_DIRECTORY_MODE = 0775;
+
+  /**
    * Creates required Drupal directories and files to ensure proper installation.
    *
    * This method sets up necessary directories (`modules`, `profiles`, `themes`)
@@ -65,16 +75,16 @@ class ScriptHandler {
         'required' => TRUE,
       ];
       SettingsEditor::rewrite($drupalRoot . '/sites/default/settings.php', $settings);
-      $fs->chmod($drupalRoot . '/sites/default/settings.php', 0666);
-      $event->getIO()->write("Created a sites/default/settings.php file with chmod 0666");
+      $fs->chmod($drupalRoot . '/sites/default/settings.php', self::SETTINGS_FILE_MODE);
+      $event->getIO()->write(sprintf('Created a sites/default/settings.php file with chmod %04o', self::SETTINGS_FILE_MODE));
     }
 
-    // Create the files directory with chmod 0777.
+    // Create the files directory with group-writable permissions.
     if (!$fs->exists($drupalRoot . '/sites/default/files') && !is_link($drupalRoot . '/sites/default/files')) {
       $oldmask = umask(0);
-      $fs->mkdir($drupalRoot . '/sites/default/files', 0777);
+      $fs->mkdir($drupalRoot . '/sites/default/files', self::PUBLIC_FILES_DIRECTORY_MODE);
       umask($oldmask);
-      $event->getIO()->write("Created a sites/default/files directory with chmod 0777");
+      $event->getIO()->write(sprintf('Created a sites/default/files directory with chmod %04o', self::PUBLIC_FILES_DIRECTORY_MODE));
     }
   }
 
