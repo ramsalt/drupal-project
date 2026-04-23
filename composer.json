@@ -72,6 +72,10 @@
     },
     "extra": {
         "composer-exit-on-patch-failure": true,
+        "drupal-recipe": {
+            "auto-unpack": true,
+            "unpack-remove-recipe": true
+        },
         "drupal-scaffold": {
             "allowed-packages": [
                 "ramsalt/drupal-scaffold",
